@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
@@ -25,6 +26,13 @@ import hud.MainMenu;
 import hud.MapSelection;
 import utilities.Images;
 import world.World;
+
+/*
+ * WRITTEN BY TREVOR STRICKLAND
+ * DEC 2, 2018
+ * 
+ * THIS CODE IS FREE TO USE AND MODIFY
+ */
 
 public class Engine extends Canvas implements Runnable, MouseListener, MouseMotionListener, KeyListener
 {
@@ -198,6 +206,10 @@ public class Engine extends Canvas implements Runnable, MouseListener, MouseMoti
 			g.fillRect(0, 0, 800, 600);
 			
 			menu.update(g);
+			
+			g.setColor(Color.WHITE);
+			g.setFont(new Font("Tahoma", Font.PLAIN, 20));
+			g.drawString("By Trevor Strickand", 25, 100);
 		}
 		
 		if(STATE == 1)
