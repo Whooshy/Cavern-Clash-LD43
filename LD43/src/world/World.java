@@ -56,6 +56,11 @@ public class World
 	
 	public World()
 	{
+		projectiles.clear();
+		helixProjectiles.clear();
+		saws.clear();
+		enemies.clear();
+		
 		for(int x = 0; x < 26; x++)
 		for(int y = 0; y < 20; y++)
 		{

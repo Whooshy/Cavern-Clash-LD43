@@ -264,7 +264,7 @@ public class Engine extends Canvas implements Runnable, MouseListener, MouseMoti
 				clickClip.start();
 			}
 			
-			if(SwingUtilities.isLeftMouseButton(e) && hud.canSkipWave && x >= 270 * (RESOLUTION + 1) && y >= 520 * (RESOLUTION + 1) && x <= 420 * (RESOLUTION + 1) && y <= 590 * (RESOLUTION + 1))
+			if(SwingUtilities.isLeftMouseButton(e) && hud.canSkipWave && x >= 270 * (RESOLUTION + 1) && y >= 560 * (RESOLUTION + 1) && x <= 420 * (RESOLUTION + 1) && y <= 590 * (RESOLUTION + 1))
 			{
 				hud.time = 0;
 				clickClip.setFramePosition(0);
@@ -356,8 +356,8 @@ public class Engine extends Canvas implements Runnable, MouseListener, MouseMoti
 			clickClip.setFramePosition(0);
 			clickClip.start();
 			
-			world = new World();
 			hud = new HUD();
+			world = new World();
 			world.loadLevel("loop");
 			
 			STATE = 1;
@@ -368,8 +368,8 @@ public class Engine extends Canvas implements Runnable, MouseListener, MouseMoti
 			clickClip.setFramePosition(0);
 			clickClip.start();
 			
-			world = new World();
 			hud = new HUD();
+			world = new World();
 			world.loadLevel("bracket");
 			
 			STATE = 1;
@@ -380,8 +380,8 @@ public class Engine extends Canvas implements Runnable, MouseListener, MouseMoti
 			clickClip.setFramePosition(0);
 			clickClip.start();
 			
-			world = new World();
 			hud = new HUD();
+			world = new World();
 			world.loadLevel("pit");
 			
 			STATE = 1;
@@ -452,8 +452,14 @@ public class Engine extends Canvas implements Runnable, MouseListener, MouseMoti
 	public void keyPressed(KeyEvent e) 
 	{
 		int k = e.getKeyCode();
-		if(k == e.VK_ESCAPE && (STATE == 2 || STATE == 3 || STATE == 1))
+		if(k == e.VK_ESCAPE && (STATE == 2 || STATE == 3))
 		{
+			STATE = 0;
+		}
+		if(k == e.VK_ESCAPE && STATE == 1)
+		{
+			select.mapHighlight = 0;
+			Engine.refreshing = true;
 			STATE = 0;
 		}
 	}
